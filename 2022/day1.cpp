@@ -37,10 +37,6 @@ int main() {
     elfs.emplace_back(getTotal(question[i]));
   }
 
-  // for (auto i : elfs) {
-  //   show(i);
-  // }
-
   int index = 0;
   int value = elfs[0];
   for (int i = 1; i < elfs.size(); ++i) {
@@ -50,7 +46,10 @@ int main() {
     }
   }
 
-  show(index + 1);
-  show(value);
-  show(*max_element(elfs.begin(), elfs.end()));
+  show(value); // part 1
+
+  sort(elfs.begin(), elfs.end());
+  int finalAns =
+      elfs[elfs.size() - 1] + elfs[elfs.size() - 2] + elfs[elfs.size() - 3];
+  show(finalAns);
 }
