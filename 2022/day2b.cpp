@@ -45,6 +45,25 @@ int main() {
         int mygame = myMap[game[me]];
         int score = 0;
 
+        if (mygame == 2) { // its a draw
+            mygame = opp;
+        } else if (mygame == 1) { // i have to lose
+            if (opp == 1) {
+                mygame = 3;
+            } else if (opp == 2) {
+                mygame = 1;
+            } else if (opp == 3) {
+                mygame = 2;
+            }
+        } else if (mygame == 3) { // i have to win
+            if (opp == 1)
+                mygame = 2;
+            if (opp == 2)
+                mygame = 3;
+            if (opp == 3)
+                mygame = 1;
+        }
+
         if ((mygame - opp) == -2 || (mygame - opp) == 1) {
             score += mygame + 6;
         } else if (mygame == opp) {
