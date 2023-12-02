@@ -23,10 +23,7 @@ int main() {
 
     while (getline(File, line)) {
         answer += stoi(solution(line));
-        // solution(line);
-        //  show(line);
     }
-    // show(getNumber("two"));
 
     File.close();
     show(answer);
@@ -74,31 +71,6 @@ string realSolution(string line) {
 
 string solution(string line) {
     string realString = realSolution(line);
-    // vector<string> numbers = {"one", "two",   "three", "four", "five",
-    //                           "six", "seven", "eight", "nine"};
-    // vector<int> answers;
-    // string cnt;
-    //
-    // for (int i = 0; i < line.length(); i++) {
-    //     if (vectorHas(cnt, numbers)) {
-    //         answers.push_back((getNumber(cnt)));
-    //         // showIn(cnt + ',');
-    //         cnt.clear();
-    //         continue;
-    //     }
-    //
-    //     if (isCharacterDigit(line[i])) {
-    //         answers.push_back(line[i] - '0');
-    //         continue;
-    //     }
-    //     cnt += line[i];
-    // }
-    //
-    // showIn(line + ":");
-    // for (auto i : answers) {
-    //     showIn(i);
-    // }
-    // show(realString);
     line = realString;
     string left, right;
 
