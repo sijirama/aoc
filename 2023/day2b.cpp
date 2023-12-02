@@ -14,7 +14,7 @@ using namespace std;
 #define showLine(x) cout << x
 
 string removeCharacter(string line, char remove);
-bool solution(string line);
+int solution(string line);
 vector<string> customSplit(string str, char separator);
 int gameId(string line);
 
@@ -23,23 +23,25 @@ int main() {
     vector<string> question;
     File.open("input/day2.txt", ios::in);
     string line;
-    int answer = 0;
+    long long answer = 0;
     // string answer = 0;
 
     while (getline(File, line)) {
-        bool rreturn;
-        rreturn = solution(line);
-        if (rreturn) {
-            answer += gameId(line);
-        }
-        // show(solution(line));
+        // bool rreturn;
+        answer += solution(line);
+        // if (rreturn) {
+        //     answer += gameId(line);
+        // }
+        //  show(solution(line));
     }
     show(answer);
 }
 
-bool solution(string line) {
-    bool ans = true;
+int solution(string line) {
+    // show(line);
+    int ans = 0;
     int red = 12, green = 13, blue = 14;
+    int cred = 0, cgreen = 0, cblue = 0;
 
     auto it = find(line.begin(), line.end(), ':');
     int index = distance(line.begin(), it);
@@ -57,23 +59,26 @@ bool solution(string line) {
     for (int i = 1; i < question.size(); i = i + 2) {
         // show(question[i]);
         string color = question[i];
+        int figure = stoi(question[i - 1]);
         if (color == "red") {
-            if (stoi(question[i - 1]) > red) {
-                ans = false;
-                break;
+            if (figure > cred) {
+                cred = figure;
+                continue;
             }
         } else if (color == "green") {
-            if (stoi(question[i - 1]) > green) {
-                ans = false;
-                break;
+            if (figure > cgreen) {
+                cgreen = figure;
+                continue;
             }
         } else if (color == "blue") {
-            if (stoi(question[i - 1]) > blue) {
-                ans = false;
-                break;
+            if (figure > cblue) {
+                cblue = figure;
+                continue;
             }
         }
     }
+    ans = cred * cgreen * cblue;
+    // show(ans);
     return ans;
 }
 string removeCharacter(string line, char remove) {
