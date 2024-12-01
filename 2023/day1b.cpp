@@ -4,7 +4,6 @@
 #include <iostream>
 #include <stdexcept>
 #include <string>
-// #include <vcruntime.h>
 #include <vector>
 
 using namespace std;
